@@ -4,258 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Yatharth Srivastava — Portfolio</title>
-  <style>
-    :root{
-      --accent:#276EF1;
-      --muted:#666;
-      --bg:#f6f8fb;
-      --card:#ffffff;
-      --glass: rgba(255,255,255,0.6);
-      --radius:12px;
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: linear-gradient(180deg, #eef3ff 0%, var(--bg) 100%);
-      color:#111;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      padding:24px;
-    }
-
-    .wrap{
-      max-width:1000px;
-      margin:24px auto;
-      display:grid;
-      grid-template-columns: 320px 1fr;
-      gap:24px;
-    }
-
-    /* left column card */
-    .profile{
-      background:var(--card);
-      padding:20px;
-      border-radius:var(--radius);
-      box-shadow: 0 6px 20px rgba(28,43,84,0.08);
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      text-align:center;
-    }
-
-    .photo{
-      width:150px;
-      height:190px;
-      border-radius:5px;
-      overflow:hidden;
-      margin-bottom:14px;
-      border:4px solid rgba(39,110,241,0.12);
-      background:linear-gradient(135deg,#fff,#f0f6ff);
-    }
-    .photo img{width:100%;height:100%;object-fit:cover;display:block}
-
-    h1{
-      font-size:20px;
-      margin:0 0 6px 0;
-      letter-spacing:0.2px;
-    }
-    .role{
-      color:var(--muted);
-      font-size:13px;
-      margin-bottom:12px;
-    }
-
-    .contact{
-      width:100%;
-      display:flex;
-      gap:8px;
-      justify-content:center;
-      margin-bottom:12px;
-    }
-    .contact a{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 10px;
-      border-radius:10px;
-      text-decoration:none;
-      color:inherit;
-      font-size:13px;
-      background: linear-gradient(180deg, rgba(39,110,241,0.08), rgba(39,110,241,0.04));
-      border:1px solid rgba(39,110,241,0.06);
-    }
-    .contact a svg{width:16px;height:16px;display:block}
-
-    .about{
-      font-size:13px;
-      color:var(--muted);
-      margin-top:8px;
-      line-height:1.45;
-    }
-
-    .card{
-      background:var(--card);
-      padding:18px;
-      border-radius:var(--radius);
-      box-shadow: 0 6px 20px rgba(28,43,84,0.04);
-    }
-
-    /* right column content */
-    .right{
-      display:flex;
-      flex-direction:column;
-      gap:18px;
-    }
-
-    .section-title{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      margin-bottom:12px;
-    }
-    .section-title h2{margin:0;font-size:16px}
-    .skills-grid{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-    .skill{
-      background:var(--glass);
-      padding:8px 10px;
-      border-radius:10px;
-      font-size:13px;
-      color:#123;
-      border:1px solid rgba(2,6,23,0.04);
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-    }
-    .skill .dot{
-      width:10px;height:10px;border-radius:50%;
-      background:var(--accent);
-      opacity:.95;
-    }
-
-    .learning{font-size:13px;color:var(--muted);margin-top:6px}
-
-    .project{
-      display:grid;
-      grid-template-columns:1fr auto;
-      gap:12px;
-      align-items:center;
-      padding:12px;
-      border-radius:10px;
-      border:1px dashed rgba(16,24,40,0.06);
-      background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(250,251,255,0.6));
-    }
-    .project h3{margin:0;font-size:15px}
-    .project p{margin:6px 0 0 0;color:var(--muted);font-size:13px}
-
-    .badges{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-    }
-
-    .badge{
-      padding:6px 8px;
-      border-radius:8px;
-      font-size:12px;
-      background:linear-gradient(90deg, rgba(39,110,241,0.12), rgba(39,110,241,0.06));
-      border:1px solid rgba(39,110,241,0.06);
-      color:var(--accent);
-    }
-
-    .cta{
-      display:flex;
-      gap:12px;
-      margin-top:12px;
-    }
-    .btn{
-      padding:10px 14px;
-      border-radius:10px;
-      background:var(--accent);
-      color:white;
-      text-decoration:none;
-      font-weight:600;
-      font-size:14px;
-      border:none;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-    }
-    .outline{
-      background:transparent;
-      border:1px solid rgba(16,24,40,0.06);
-      color:var(--muted);
-      font-weight:600;
-    }
-    /* THEME TOGGLE BUTTON */
-.theme-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  padding: 10px 12px;
-  border-radius: 50%;
-  background: var(--card);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  border: 1px solid rgba(0,0,0,0.1);
-  cursor: pointer;
-  font-size: 18px;
-  z-index: 999;
-}
-
-/* DARK MODE VARIABLES */
-body.dark {
-  --accent: #4c8dff;
-  --muted: #aaa;
-  --bg: #0f1116;
-  --card: #1a1c22;
-  --glass: rgba(40,40,40,0.6);
-  color: #f5f6f7;
-  background: linear-gradient(180deg, #0b0c10 0%, #111318 100%);
-}
-
-/* Dark mode shadows and borders */
-body.dark .card,
-body.dark .profile {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-}
-
-body.dark .project {
-  border-color: rgba(255,255,255,0.1);
-  background: linear-gradient(180deg, rgba(30,30,30,0.6), rgba(20,20,20,0.6));
-}
-
-body.dark .contact a,
-body.dark .skill,
-body.dark .badge,
-body.dark .btn.outline {
-  border-color: rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.05);
-  color: #e5e6e7;
-}
-
-
-    footer{
-      margin-top:18px;
-      text-align:center;
-      font-size:13px;
-      color:var(--muted);
-    }
-
-    /* responsive */
-    @media (max-width:880px){
-      .wrap{grid-template-columns:1fr; padding:0 12px}
-      .photo{width:120px;height:120px}
-    }
-
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <div class="wrap">
     <!-- LEFT: Profile -->
     <aside class="profile">
@@ -376,7 +128,6 @@ body.dark .btn.outline {
   </a>
 </section>
 
-
       <section class="card">
         <div class="section-title">
           <h2>Contact</h2>
@@ -385,7 +136,7 @@ body.dark .btn.outline {
 
         <div style="display:flex;flex-direction:column;gap:8px">
           <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <a class="btn" href="https://mail.google.com/mail/u/0/#inbox?compose=new">Email</a>
+            <a class="btn outline" href="https://mail.google.com/mail/u/0/#inbox?compose=new">Email</a>
             <a class="btn outline" href="https://www.linkedin.com/in/yatharth-srivastava-649518306/" target="_blank" rel="noopener">LinkedIn</a>
             <a class="btn outline" href="https://github.com/yatharth-0108" target="_blank" rel="noopener">GitHub</a>
           </div>
@@ -401,7 +152,6 @@ body.dark .btn.outline {
         © <span id="year"></span> Yatharth Srivastava — Portfolio
       </footer>
       <button id="themeToggle" class="theme-toggle">🌙</button>
-
 
 
 
@@ -435,3 +185,4 @@ body.dark .btn.outline {
 
 </body>
 </html>
+
