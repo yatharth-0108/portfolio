@@ -193,6 +193,52 @@
       color:var(--muted);
       font-weight:600;
     }
+    /* THEME TOGGLE BUTTON */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 12px;
+  border-radius: 50%;
+  background: var(--card);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border: 1px solid rgba(0,0,0,0.1);
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 999;
+}
+
+/* DARK MODE VARIABLES */
+body.dark {
+  --accent: #4c8dff;
+  --muted: #aaa;
+  --bg: #0f1116;
+  --card: #1a1c22;
+  --glass: rgba(40,40,40,0.6);
+  color: #f5f6f7;
+  background: linear-gradient(180deg, #0b0c10 0%, #111318 100%);
+}
+
+/* Dark mode shadows and borders */
+body.dark .card,
+body.dark .profile {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+body.dark .project {
+  border-color: rgba(255,255,255,0.1);
+  background: linear-gradient(180deg, rgba(30,30,30,0.6), rgba(20,20,20,0.6));
+}
+
+body.dark .contact a,
+body.dark .skill,
+body.dark .badge,
+body.dark .btn.outline {
+  border-color: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.05);
+  color: #e5e6e7;
+}
+
 
     footer{
       margin-top:18px;
@@ -260,7 +306,10 @@
           <div style="display:flex;justify-content:space-between;align-items:center">
             <strong>Quick info</strong>
             <div class="badges">
-              <span class="badge">Cloud — certificate</span>
+              <a href="Screenshot 2025-12-05 002321.png" target="_blank" class="badge" style="text-decoration:none; cursor:pointer;">
+  Cloud — certificate
+</a>
+
               <span class="badge">C++</span>
               <span class="badge">Python</span>
             </div>
@@ -300,31 +349,33 @@
         </div>
 
         <div style="display:flex;flex-direction:column;gap:12px">
-          <article class="project" aria-labelledby="p1">
-            <div>
-              <h3 id="p1">Samadhan</h3>
-              <p>A problem-solving platform (or brief one-line summary). Built using C++ for algorithm backend + a web front-end (in progress).</p>
-            </div>
-            <div style="text-align:right">
-              <a class="btn outline" href="#" title="Samadhan repo or demo">Details</a>
-            </div>
-          </article>
+    
 
-          <article class="project" aria-labelledby="p2">
+         <article class="project" aria-labelledby="p2">
             <div>
               <h3 id="p2">Collex</h3>
-              <p>Collection & collaboration tool (or brief one-line summary). Focus: UX + integration with cloud services for storage.</p>
+              <p>OLX FOR COLLEGE STUDENTS(in progress).</p>
             </div>
             <div style="text-align:right">
-              <a class="btn outline" href="#" title="Collex repo or demo">Details</a>
+              <a class="btn outline" href="WhatsApp Image 2025-11-02 at 23.15.53_64ecf247.jpg" title="Collex demo">Details</a>
             </div>
           </article>
 
           <div style="font-size:13px;color:var(--muted);padding:8px">
-            Want to add screenshots, repo links or live demos? Replace the "Details" href with the appropriate URLs.
           </div>
         </div>
       </section>
+      <section class="card">
+  <div class="section-title">
+    <h2>Video Resume</h2>
+    <div style="font-size:13px;color:var(--muted)">Click to watch</div>
+  </div>
+
+  <a href="https://drive.google.com/file/d/14wabUkgr0It_l_4V0NfFPxO-iW4LlA0C/view?usp=drivesdk" target="_blank" class="btn" style="width:max-content;">
+    Watch Video Resume
+  </a>
+</section>
+
 
       <section class="card">
         <div class="section-title">
@@ -349,12 +400,38 @@
       <footer>
         © <span id="year"></span> Yatharth Srivastava — Portfolio
       </footer>
+      <button id="themeToggle" class="theme-toggle">🌙</button>
+
+
+
 
     </main>
   </div>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  const toggle = document.getElementById('themeToggle');
+  const body = document.body;
+
+  // Load saved theme
+  if (localStorage.getItem("theme") === "dark") {
+    body.classList.add("dark");
+    toggle.textContent = "☀️";
+  }
+
+  toggle.addEventListener("click", () => {
+    body.classList.toggle("dark");
+
+    if (body.classList.contains("dark")) {
+      toggle.textContent = "☀️";
+      localStorage.setItem("theme", "dark");
+    } else {
+      toggle.textContent = "🌙";
+      localStorage.setItem("theme", "light");
+    }
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
